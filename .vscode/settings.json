@@ -1,0 +1,5 @@
+{
+  "terminal.integrated.env.osx": {
+    "COREPACK_ENABLE_AUTO_PIN": "0"
+  }
+}

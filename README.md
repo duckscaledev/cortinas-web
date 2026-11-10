@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cascarón Next.js
 
-## Getting Started
+Base responsive en Next.js App Router, TypeScript, Tailwind CSS, React Aria
+Components y Lucide React. La interfaz utiliza una estructura wireframe en
+escala de grises, lista para reemplazar los textos y marcadores por contenido
+real.
 
-First, run the development server:
+## Inicializar desde cero
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm create next-app cortinas-web --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --use-pnpm
+cd cortinas-web
+pnpm add react-aria-components lucide-react
+pnpm add next-intl
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js puede generar automáticamente el campo opcional `packageManager` al
+crear el proyecto. Si no se quiere mantenerlo, elimínalo de `package.json`
+después de crear la app. Para evitar que Corepack vuelva a añadirlo al ejecutar
+pnpm desde una terminal integrada de VS Code, se configura
+`COREPACK_ENABLE_AUTO_PIN=0` en `.vscode/settings.json`; abre una terminal nueva
+después de aplicar el ajuste.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+En este proyecto, instala dependencias con `pnpm install` y arranca con
+`pnpm dev`. Después abre [http://localhost:3000](http://localhost:3000).
+Para comprobar la correspondencia de los catálogos de traducción, ejecuta
+`pnpm test`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura
 
-## Learn More
+```text
+src/
+├── app/
+│   ├── globals.css
+│   └── [locale]/
+│       ├── layout.tsx
+│       ├── page.tsx             # redirección a /home
+│       ├── home/
+│       │   ├── page.tsx
+│       │   └── components/
+│       ├── contact/
+│       │   ├── page.tsx
+│       │   └── components/
+│       ├── decorators/
+│       │   ├── page.tsx
+│       │   └── components/
+│       └── product/[id]/
+│           ├── page.tsx
+│           └── components/
+├── components/
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   └── LanguageSwitcher.tsx
+├── i18n/
+│   ├── navigation.ts
+│   ├── request.ts
+│   └── routing.ts
+└── proxy.ts
+messages/
+├── ca.json
+└── es.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+El layout raíz define los landmarks `header`, `main` y `footer`. `Header`
+incluye navegación horizontal en escritorio y un menú accesible en móviles.
+Las rutas principales son `/home`, `/product/[id]`, `/decorators` y
+`/contact`; `/` redirige a `/home`. Los componentes exclusivos de una página
+viven en su carpeta `components`, y `src/components/` contiene los
+componentes compartidos de la aplicación.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tipografía
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Outfit se utiliza para el texto y la interfaz, y Fraunces para los encabezados.
+Las fuentes se cargan mediante `next/font` y se sirven desde la aplicación.
 
-## Deploy on Vercel
+## Idiomas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La aplicación usa `next-intl` con español (`es`) y catalán (`ca`). Las rutas no
+muestran prefijo de idioma; el idioma elegido se guarda en la cookie
+`NEXT_LOCALE`. Los catálogos de traducción viven en `messages/`, y la
+configuración de rutas y navegación está en `src/i18n/`. La navegación, el pie
+de página, los metadatos y el contenido de las páginas tienen traducciones en
+ambos idiomas.

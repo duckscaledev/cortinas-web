@@ -6,6 +6,110 @@ import { useTranslations } from "next-intl";
 const heroImage =
   "https://images.unsplash.com/photo-1617597190828-1bf579d485ee?w=1600&h=1000&fit=crop&auto=format";
 
+const curtainStyles = `
+.hero-curtains {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-curtains {
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .hero-curtains::before,
+  .hero-curtains::after {
+    position: absolute;
+    inset-block: 0;
+    width: 50%;
+    content: "";
+    --curtain-closed: polygon(
+      var(--outer-edge) 0%, var(--inner-edge) 0%,
+      var(--inner-edge) 42%, var(--inner-edge) 62%,
+      var(--inner-edge) 100%, var(--outer-edge) 100%
+    );
+    --curtain-gathered: polygon(
+      var(--outer-edge) 0%, var(--inner-edge) 0%,
+      var(--curve-shoulder) 42%, var(--gathered-middle) 62%,
+      var(--gathered-hem) 100%, var(--outer-edge) 100%
+    );
+    background:
+      linear-gradient(180deg, #786f681f, transparent 45%, #786f6833),
+      repeating-linear-gradient(
+        var(--fold-direction),
+        #c8c2bc 0,
+        #eeeae6 12%,
+        #ffffff 21%,
+        #f3f0ed 32%,
+        #d4cec8 47%,
+        #c8c2bc 50%
+      );
+    background-size: 100% 100%, clamp(84px, 18vw, 240px) 100%;
+    animation: hero-curtain-open 1.85s cubic-bezier(0.57, 0.03, 0.24, 1) both;
+  }
+
+  .hero-curtains::before {
+    --fold-direction: 90deg;
+    --outer-edge: 0%;
+    --inner-edge: 100%;
+    --curve-shoulder: 66%;
+    --gathered-middle: 22%;
+    --gathered-hem: 47%;
+    inset-inline-start: 0;
+    transform-origin: left center;
+  }
+
+  .hero-curtains::after {
+    --fold-direction: 270deg;
+    --outer-edge: 100%;
+    --inner-edge: 0%;
+    --curve-shoulder: 34%;
+    --gathered-middle: 78%;
+    --gathered-hem: 53%;
+    inset-inline-end: 0;
+    transform-origin: right center;
+  }
+}
+
+@supports (clip-path: shape(from 0 0, line to 100% 0, close)) {
+  .hero-curtains::before,
+  .hero-curtains::after {
+    --curtain-closed: shape(
+      from var(--outer-edge) 0%,
+      line to var(--inner-edge) 0%,
+      curve to var(--inner-edge) 62% with var(--inner-edge) 26% / var(--inner-edge) 57%,
+      curve to var(--inner-edge) 100% with var(--inner-edge) 76% / var(--inner-edge) 91%,
+      line to var(--outer-edge) 100%,
+      close
+    );
+    --curtain-gathered: shape(
+      from var(--outer-edge) 0%,
+      line to var(--inner-edge) 0%,
+      curve to var(--gathered-middle) 62% with var(--inner-edge) 26% / var(--curve-shoulder) 61%,
+      curve to var(--gathered-hem) 100% with var(--gathered-middle) 70% / var(--gathered-hem) 87%,
+      line to var(--outer-edge) 100%,
+      close
+    );
+  }
+}
+
+@keyframes hero-curtain-open {
+  from {
+    transform: scaleX(1);
+    opacity: 0.6;
+    clip-path: var(--curtain-closed);
+  }
+
+  to {
+    transform: scaleX(0.4);
+    opacity: 0.48;
+    clip-path: var(--curtain-gathered);
+  }
+}
+`;
+
 export const Hero = () => {
   const t = useTranslations("Home");
   return (
@@ -23,6 +127,8 @@ export const Hero = () => {
         sizes="100vw"
         className="object-cover opacity-50"
       />
+      <style>{curtainStyles}</style>
+      <div aria-hidden="true" className="hero-curtains" />
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-[#0F0F0E]/90 via-[#0F0F0E]/30 to-transparent"

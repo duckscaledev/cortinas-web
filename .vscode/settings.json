@@ -1,4 +1,6 @@
 {
+  "js/ts.tsdk.path": "./node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "terminal.integrated.env.osx": {
     "COREPACK_ENABLE_AUTO_PIN": "0"
   }

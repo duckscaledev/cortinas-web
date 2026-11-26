@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
-import { Button, Input, Label, TextField } from "react-aria-components";
+import { Menu, ShoppingBag, X } from "lucide-react";
+import { Button } from "react-aria-components";
+// import { Search } from "lucide-react";
+// import { Input, Label, TextField } from "react-aria-components";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const iconButtonClassName =
@@ -18,10 +20,11 @@ export const Header = () => {
   const pathname = usePathname();
   const t = useTranslations("Navigation");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  // const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigationLinks = [
     { href: "/home", label: t("home"), exact: true },
     { href: "/products", match: "/products", label: t("products") },
+    { href: "/services", label: t("services") },
     { href: "/partners", label: t("decorators") },
     { href: "/contact", label: t("contact") },
   ];
@@ -42,7 +45,7 @@ export const Header = () => {
           </Link>
 
           <nav
-            className="hidden items-center gap-8 lg:flex"
+            className="hidden items-center gap-5 lg:flex xl:gap-8"
             aria-label={t("mainNavigation")}
           >
             {navigationLinks.map(({ href, match, label, exact }) => {
@@ -66,8 +69,10 @@ export const Header = () => {
           </nav>
 
           <div className="flex items-center gap-1 lg:gap-2">
-            <LanguageSwitcher />
-            <Button
+            <div className="hidden lg:block">
+              <LanguageSwitcher />
+            </div>
+            {/* <Button
               onPress={() => setIsSearchOpen((open) => !open)}
               className={iconButtonClassName}
               aria-label={isSearchOpen ? t("closeSearch") : t("search")}
@@ -79,7 +84,7 @@ export const Header = () => {
               ) : (
                 <Search aria-hidden="true" size={18} />
               )}
-            </Button>
+            </Button> */}
             <Button
               className={`${iconButtonClassName} hidden lg:flex`}
               aria-label={t("cart")}
@@ -102,7 +107,7 @@ export const Header = () => {
           </div>
         </div>
 
-        {isSearchOpen && (
+        {/* {isSearchOpen && (
           <div id="site-search" className="pb-4 pt-1">
             <TextField aria-label={t("search")} className="relative">
               <Label className="sr-only">{t("search")}</Label>
@@ -118,7 +123,7 @@ export const Header = () => {
               />
             </TextField>
           </div>
-        )}
+        )} */}
 
         {isMobileMenuOpen && (
           <nav
@@ -148,6 +153,9 @@ export const Header = () => {
                 );
               })}
             </ul>
+            <div className="mt-2 px-4">
+              <LanguageSwitcher />
+            </div>
           </nav>
         )}
       </div>

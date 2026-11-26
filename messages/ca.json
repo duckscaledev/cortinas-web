@@ -5,6 +5,7 @@
     "mobileNavigation": "Navegació mòbil",
     "home": "Inici",
     "products": "Productes",
+    "services": "Serveis",
     "decorators": "Decoradors",
     "contact": "Contacte",
     "search": "Cerca productes",
@@ -15,9 +16,7 @@
     "searchPlaceholder": "Cerca cortines, teixits, colors…"
   },
   "Language": {
-    "label": "Idioma",
-    "spanish": "Espanyol",
-    "catalan": "Català"
+    "label": "Idioma"
   },
   "Footer": {
     "brandHome": " Cortinas J&D, inici",
@@ -25,6 +24,7 @@
     "home": "Inici",
     "brandDescription": "Cortines i teixits d'alta qualitat per transformar casa teva en un espai elegant i acollidor.",
     "quickLinks": "Enllaços ràpids",
+    "services": "Serveis",
     "catalog": "Catàleg",
     "decoratorProgram": "Programa per a decoradors",
     "categories": "Categories",
@@ -92,6 +92,20 @@
     "decorators": "Decoradors",
     "programDescription": "Descomptes exclusius, catàleg ampliat, compte dedicat i suport tècnic per a arquitectes, dissenyadors i decoradors.",
     "discoverProgram": "Conèixer el programa"
+  },
+  "Services": {
+    "title": "Serveis",
+    "intro": "Cortines a mida per al teu espai. T'acompanyem des de la tria del teixit fins a la instal·lació.",
+    "contact": "Demanar pressupost",
+    "processTitle": "Com treballem",
+    "adviceTitle": "Assessorament",
+    "adviceDescription": "T'ajudem a triar el teixit i l'acabat segons la llum i la privacitat que necessites.",
+    "measurementTitle": "Presa de mides",
+    "measurementDescription": "Prenem les mides de les finestres i revisem com es col·locaran les cortines al teu espai.",
+    "tailoringTitle": "Confecció a mida",
+    "tailoringDescription": "Preparem les cortines amb les mides, el teixit i els acabats acordats.",
+    "installationTitle": "Instal·lació",
+    "installationDescription": "Muntem les cortines i comprovem que s'obren i es tanquen correctament."
   },
   "Contact": {
     "address": "Adreça",

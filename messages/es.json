@@ -5,6 +5,7 @@
     "mobileNavigation": "Navegación móvil",
     "home": "Inicio",
     "products": "Productos",
+    "services": "Servicios",
     "decorators": "Decoradores",
     "contact": "Contacto",
     "search": "Buscar productos",
@@ -15,9 +16,7 @@
     "searchPlaceholder": "Buscar cortinas, telas, colores…"
   },
   "Language": {
-    "label": "Idioma",
-    "spanish": "Español",
-    "catalan": "Català"
+    "label": "Idioma"
   },
   "Footer": {
     "brandHome": " Cortinas J&D, inicio",
@@ -25,6 +24,7 @@
     "home": "Inicio",
     "brandDescription": "Cortinas y textiles de alta calidad para transformar tu hogar en un espacio elegante y acogedor.",
     "quickLinks": "Enlaces rápidos",
+    "services": "Servicios",
     "catalog": "Catálogo",
     "decoratorProgram": "Programa Decoradores",
     "categories": "Categorías",
@@ -92,6 +92,20 @@
     "decorators": "Decoradores",
     "programDescription": "Descuentos exclusivos, catálogo ampliado, cuenta dedicada y soporte técnico para arquitectos, diseñadores y decoradores.",
     "discoverProgram": "Conocer el programa"
+  },
+  "Services": {
+    "title": "Servicios",
+    "intro": "Cortinas a medida para tu espacio. Te acompañamos desde la elección del tejido hasta la instalación.",
+    "contact": "Pedir presupuesto",
+    "processTitle": "Cómo trabajamos",
+    "adviceTitle": "Asesoramiento",
+    "adviceDescription": "Te ayudamos a elegir el tejido y el acabado según la luz y la privacidad que necesitas.",
+    "measurementTitle": "Toma de medidas",
+    "measurementDescription": "Medimos las ventanas y revisamos cómo se colocarán las cortinas en tu espacio.",
+    "tailoringTitle": "Confección a medida",
+    "tailoringDescription": "Preparamos las cortinas con las medidas, el tejido y los acabados acordados.",
+    "installationTitle": "Instalación",
+    "installationDescription": "Montamos las cortinas y comprobamos que se abren y se cierran correctamente."
   },
   "Contact": {
     "address": "Dirección",

@@ -6,7 +6,7 @@ export const localeCookie = {
 };
 
 export const routing = defineRouting({
-  locales: ["es", "ca"],
+  locales: ["es", "ca", "en"],
   defaultLocale: "es",
   localePrefix: "never",
   localeCookie,

@@ -1,4 +1,4 @@
-import Image from "next/image";
+ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -8,29 +8,25 @@ export const collections = [
     id: 1,
     title: "opaqueCurtains",
     tag: "privacy",
-    image:
-      "https://images.unsplash.com/photo-1780257562925-d78de6cb6612?w=600&h=800&fit=crop&auto=format",
+    image: "/images/opaqueCurtains.avif",
   },
   {
     id: 2,
     title: "sheerCurtains",
     tag: "naturalLight",
-    image:
-      "https://images.unsplash.com/photo-1573507811472-909cd17e834d?w=600&h=800&fit=crop&auto=format",
+    image: "/images/opaqueCurtains.avif",
   },
   {
     id: 3,
     title: "blackout",
     tag: "rest",
-    image:
-      "https://images.unsplash.com/photo-1552858725-2758b5fb1286?w=600&h=800&fit=crop&auto=format",
+    image: "/images/opaqueCurtains.avif",
   },
   {
     id: 4,
     title: "automated",
     tag: "smartHome",
-    image:
-      "https://images.unsplash.com/photo-1528822855841-e8bf3134cdc9?w=600&h=800&fit=crop&auto=format",
+    image: "/images/opaqueCurtains.avif",
   },
 ] as const;
 

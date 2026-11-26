@@ -24,6 +24,7 @@ export const Footer = async () => {
   const quickLinks = [
     { href: "/home", label: t("home") },
     { href: "/product/1", label: t("catalog") },
+    { href: "/services", label: t("services") },
     { href: "/decorators", label: t("decoratorProgram") },
     { href: "/contact", label: t("contact") },
   ];

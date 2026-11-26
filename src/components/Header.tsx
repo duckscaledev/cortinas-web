@@ -21,7 +21,7 @@ export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigationLinks = [
     { href: "/home", label: t("home"), exact: true },
-    { href: "/product/1", match: "/product", label: t("products") },
+    { href: "/products", match: "/products", label: t("products") },
     { href: "/partners", label: t("decorators") },
     { href: "/contact", label: t("contact") },
   ];

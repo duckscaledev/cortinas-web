@@ -45,7 +45,7 @@ export const Hero = () => {
           </h1>
           <div className="flex flex-col items-start gap-4 sm:flex-row">
             <Link
-              href="/product/1"
+              href="/products"
               className="inline-flex min-h-11 items-center gap-3 bg-white px-7 py-4 text-sm font-medium tracking-wide text-[#0F0F0E] transition-colors hover:bg-[#EEECE7] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               {t("catalog")}
